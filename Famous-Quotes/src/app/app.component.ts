@@ -22,24 +22,27 @@ export class AppComponent {
             label: 'Favorite Quotes',
             link: './saved-quotes',
             index: 1
+        },{
+            label: 'My Quotes',
+            link: './create-quote',
+            index: 2
         }
     ];
-}
-
-ngOnInit(): void {
-  this.router.events.subscribe((res) => {
-      this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
-  });
-}
-
-getActiveClass(indexOfRouteLink) {
-  let tabsclass = 'mat-tab-link';
-  if (this.activeLinkIndex === indexOfRouteLink) {
-    tabsclass = 'mat-tab-link mat-tab-label-active';
   }
 
-  return tabsclass;
-}
+  ngOnInit(): void {
+    this.router.events.subscribe(() => {
+        this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
+    });
+  }
+
+  getActiveClass(indexOfRouteLink) {
+    let tabsclass = 'mat-tab-link';
+    if (this.activeLinkIndex === indexOfRouteLink) {
+      tabsclass = 'mat-tab-link mat-tab-label-active';
+    }
+    return tabsclass;
+  }
 
 
 

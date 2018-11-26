@@ -1,3 +1,15 @@
-<p>
-  quote-gen works!
-</p>
+<mat-toolbar color="accent">
+  List of Quotes
+</mat-toolbar>
+<mat-accordion multi="true" >    
+  <mat-expansion-panel [expanded]="true" >
+    <mat-expansion-panel-header class="quote" >
+      &quot; {{ quote.quote }} &quot;
+    </mat-expansion-panel-header>
+    <p class="author">By - {{ quote.author }}</p>
+      <mat-action-row>          
+        <button mat-raised-button color="primary" (click)="getQuote()">New Quote</button>
+        <button mat-raised-button color="warn" (click)="addQuote()">Save Quote</button>      
+    </mat-action-row>  
+  </mat-expansion-panel>
+</mat-accordion>

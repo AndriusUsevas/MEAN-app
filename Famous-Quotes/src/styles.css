@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+html{
+    background-color: rgb(247, 242, 242);
+}
+.quote{
+    font-size: 20px;
+}
+
+.author{
+    font-style: italic;
+}

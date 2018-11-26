@@ -1,3 +1,13 @@
-<p>
-  saved-quotes works!
-</p>
+<mat-toolbar color="accent">List of Saved Quotes</mat-toolbar>
+<mat-accordion multi="true" *ngIf="quotes.length > 0">
+  <mat-expansion-panel [expanded]="true" *ngFor="let q of quotes">
+    <mat-expansion-panel-header class="quote">
+      &quot;{{ q.quote }}&quot;
+    </mat-expansion-panel-header>
+    <p class="author"> By - {{ q.author }}</p> 
+    <mat-action-row>
+      <button mat-raised-button color="warn" (click)="deleteQuote(q._id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="quotes.length <= 0">No posts added yet!</p> 
