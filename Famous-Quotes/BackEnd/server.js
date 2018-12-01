@@ -3,8 +3,9 @@ var app = express();
 var path = require('path');
 var bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const request = require('request');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://Neuroma:Solomon1@ds143593.mlab.com:43593/mongodb_lab5');
+mongoose.connect('mongodb://admin:admin1@ds117164.mlab.com:17164/project');
 
 //mongoose connection
 var db = mongoose.connection;
@@ -18,6 +19,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 });
 
   var QuoteData = mongoose.model('Quotes',QuoteSchema);
+  
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -41,11 +43,34 @@ app.use(function(req, res, next) {
     })
   })
 
-  // app.get('/quote-gen', ()=> {    
-  
-  //   console.log("https://talaikis.com/api/quotes/random/");
-    
-  //   });
+  // gets quotes from api (quote-gen)
+  app.get('/quote-gen', (req,res)=> {  
+    request('https://talaikis.com/api/quotes/random/', (err,response, body)=>{
+      if(err) return handleError(err);
+      res.status(200).send(body);
+      res.end();
+    })
+      
+  });
+
+
+
+
+  // ========================================= EXPERIMENTAL =======================================================================
+// gets 100 quotes from api and displays it for user to choose and save(not saved)
+  app.get('/quote100-gen',(req,res)=>{
+    request('https://talaikis.com/api/quotes/', (err,response, body)=>{
+      if(err) return handleError(err);
+      body = JSON.parse(body);           
+      res.send(body);
+      res.end();
+    })    
+  })
+
+
+
+  //=====================================================================================================================================
+
 
 //retrieve saved quotes from MongoDB
 app.get('/saved-quotes',(req,res)=>{

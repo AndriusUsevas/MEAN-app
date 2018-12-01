@@ -16,6 +16,7 @@ import { SavedQuotesComponent } from './saved-quotes/saved-quotes.component';
 import { CreateQuoteComponent } from './create-quote/create-quote.component';
 import { QuoteService } from './services/quote.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Quotes100GenComponent } from './quotes100-gen/quotes100-gen.component';
 
 
 const appRoutes: Routes = [
@@ -31,8 +32,11 @@ const appRoutes: Routes = [
   {
     path:'create-quote',
     component:CreateQuoteComponent
+  },
+  {
+    path:'quotes100-gen',
+    component:Quotes100GenComponent
   }
-
 ];
 
 
@@ -41,9 +45,11 @@ const appRoutes: Routes = [
     AppComponent,
     QuoteGenComponent,
     SavedQuotesComponent,
-    CreateQuoteComponent
+    CreateQuoteComponent,
+    Quotes100GenComponent
   ],
   imports: [
+    
     HttpClientModule,
     BrowserModule,
     MatTabsModule,

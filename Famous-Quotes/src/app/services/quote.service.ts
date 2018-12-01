@@ -13,21 +13,19 @@ export class QuoteService {
   constructor(private http: HttpClient) { }
 
 
-  getQuoteData(): Observable<any> {
+  getQuoteData(): Observable<any> {  ///// NEED FIXING!!!!!!!!!!!!!!!!!!!!
     
-    return this.http.get("https://talaikis.com/api/quotes/random/");
+    return this.http.get("http://localhost:8081/quote-gen");
   }
 
-  get100QuoteData(): Observable<any> {
-    return this.http.get("https://talaikis.com/api/quotes/");
+  get100QuoteData(): Observable<any> {  /// NEED IMPLEMENTING AFTER getQuoteData() IS FIXED!!!!!!
+    return this.http.get("http://localhost:8081/quote100-gen");
   }
 
   saveQuote(quote: String, author: String, cat: String): Observable<any> {
     const saveQuote: Quote = {quote: quote, author: author, cat: cat};
 
     return this.http.post("http://localhost:8081/quote-gen",saveQuote);
-   
-    //this.postsUpdated.next([...this.posts]);
   }
 
 
@@ -39,6 +37,23 @@ export class QuoteService {
 
     return this.http.delete("http://localhost:8081/saved-quotes/" + id);
   }
+
+
+
+  //==============EXPERIMENTAL================================
+
+  getQuote100Data(): Observable<any> {  ///// NEED FIXING!!!!!!!!!!!!!!!!!!!!
+    
+    return this.http.get("http://localhost:8081/quote100-gen");
+  }
+
+
+
+
+
+
+
+
 
 
 

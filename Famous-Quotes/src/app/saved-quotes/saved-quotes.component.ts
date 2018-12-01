@@ -8,6 +8,7 @@ import {QuoteService} from '../services/quote.service';
 })
 export class SavedQuotesComponent implements OnInit {
   quotes: any = [];
+  
   constructor(private service:QuoteService) { }
 
   ngOnInit() {

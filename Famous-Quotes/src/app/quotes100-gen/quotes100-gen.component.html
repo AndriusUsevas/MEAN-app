@@ -1,0 +1,18 @@
+<mat-toolbar color="accent">
+  Quotes by Famous people from all around the World! 
+  <span><button mat-raised-button color="primary" [routerLink]="['/quotes100-gen']" (click)="get100Quotes()"> 100 New Quotes</button></span>
+  <span><button mat-raised-button color="primary" [routerLink]="['/quote-gen']">New Single Quote</button></span>
+</mat-toolbar> 
+
+<mat-accordion multi="true" *ngIf="quotes.length > 0">
+  <mat-expansion-panel [expanded]="true" *ngFor="let q of quotes; let i=index">
+    <mat-expansion-panel-header class="quote">
+      &quot;{{ q.quote }}&quot;
+    </mat-expansion-panel-header>
+    <p class="author"> By - {{ q.author }}</p> 
+    <mat-action-row>
+      <button mat-raised-button color="warn" (click)="addQuote(i)">Save Quote</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="quotes.length <= 0">Wait...Generating 100 Quotes!!</p> 

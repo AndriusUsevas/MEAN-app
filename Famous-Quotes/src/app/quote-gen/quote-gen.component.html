@@ -1,15 +1,27 @@
+
 <mat-toolbar color="accent">
-  List of Quotes
+  Quotes by Famous people from all around the World! 
+  <span><button mat-raised-button color="primary" [routerLink]="['/quotes100-gen']"> 100 New Quotes</button></span>
+  <span><button mat-raised-button color="primary" (click)="getQuote()">New Single Quote</button></span>
 </mat-toolbar>
-<mat-accordion multi="true" >    
-  <mat-expansion-panel [expanded]="true" >
+
+<mat-accordion multi="true">    
+  <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header class="quote" >
-      &quot; {{ quote.quote }} &quot;
-    </mat-expansion-panel-header>
-    <p class="author">By - {{ quote.author }}</p>
-      <mat-action-row>          
-        <button mat-raised-button color="primary" (click)="getQuote()">New Quote</button>
-        <button mat-raised-button color="warn" (click)="addQuote()">Save Quote</button>      
+      &quot; {{ quote.quote}}  &quot;     
+    </mat-expansion-panel-header>    
+    <p class="author">By -  {{ quote.author}}</p>  
+    <mat-action-row>          
+      <button mat-raised-button color="warn" (click)="addQuote()">Save Quote</button>      
     </mat-action-row>  
   </mat-expansion-panel>
 </mat-accordion>
+
+
+
+
+
+
+
+
+
