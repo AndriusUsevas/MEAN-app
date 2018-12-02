@@ -1,9 +1,9 @@
-<h1>Famous People Quotes Generator</h1>
+<h1>Famous People Quote Generator</h1>
     
     <nav mat-tab-nav-bar mat-align-tabs="center">
         <a mat-tab-link
            *ngFor="let routeLink of routeLinks; let i = index;"
-           [routerLink]="routeLink.link"
+           [routerLink]="routeLink.link" 
            routerLinkActive
            #rla="routerLinkActive"
            [active]="activeLinkIndex === i"

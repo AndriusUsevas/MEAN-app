@@ -1,0 +1,18 @@
+<mat-toolbar color="accent">
+    Feeling creative? 'Ink' your Thoughts!
+    <span><button mat-raised-button color="primary" [routerLink]="['/create-quote']">Create a Quote</button></span>
+</mat-toolbar>
+
+<mat-accordion multi="true" *ngIf="quotes.length > 0">
+    <mat-expansion-panel [expanded]="true" *ngFor="let persquote of quotes">
+      <mat-expansion-panel-header class="quote">
+        &quot;{{ persquote.quote }}&quot;
+      </mat-expansion-panel-header>
+      <p class="author"> By - {{ persquote.author }}</p> 
+      <mat-action-row>
+          <button mat-raised-button color="primary" [routerLink]="['/edit-quote', persquote._id]">EDIT</button>
+        <button mat-raised-button color="warn" (click)="deletePersonalQuote(persquote._id)">DELETE</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="quotes.length <= 0">No quotes created yet!</p> 

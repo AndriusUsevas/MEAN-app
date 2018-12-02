@@ -24,8 +24,7 @@ export class Quotes100GenComponent implements OnInit {
 
   addQuote(index) {
     this.service.saveQuote(this.quotes[index].quote, this.quotes[index].author, this.quotes[index].cat).subscribe();
-    this.quotes.splice(index,1);
-    console.log("post saved to mongoDB")
+    this.quotes.splice(index,1);// remove from the list
   }
 
 

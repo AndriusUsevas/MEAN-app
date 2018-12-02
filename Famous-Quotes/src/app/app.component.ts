@@ -13,6 +13,8 @@ export class AppComponent {
   activeLinkIndex = -1;
 
   constructor(private router: Router) {
+
+    //creates Tabs for navigation
     this.routeLinks = [
         {
             label: 'Quote Generator',
@@ -24,18 +26,19 @@ export class AppComponent {
             index: 1
         },{
             label: 'My Quotes',
-            link: './create-quote',
+            link: './personal-quotes',
             index: 2
         }
     ];
   }
 
   ngOnInit(): void {
+    //checks which route is selected,if page is refreshed - stays on the same page
     this.router.events.subscribe(() => {
         this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
     });
   }
-
+  //checks which route is selected,if page is refreshed - stays on the same page
   getActiveClass(indexOfRouteLink) {
     let tabsclass = 'mat-tab-link';
     if (this.activeLinkIndex === indexOfRouteLink) {

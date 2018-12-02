@@ -1,12 +1,19 @@
-<!-- <mat-card>
-    <form (submit)="createQuote(quoteForm)" #quoteForm="ngForm">
+<mat-toolbar color="accent">
+    Feeling creative? Ink your Thoughts!
+    <span><button mat-raised-button color="primary" [routerLink]="['/create-quote']">Create a Quote</button></span>
+</mat-toolbar>
+
+<mat-card>
+    <form (submit)="onAddQuote(quoteForm)" #quoteForm="ngForm">
       <mat-form-field>
-        <input matInput type="text" name="title" ngModel={{quote.quote}} required minlength="3" #title="ngModel">
-        <mat-error *ngIf="quote.invalid">Please enter a post title.</mat-error>
-      </mat-form-field>
+        <input matInput  type="text" name="author" placeholder="Enter your pseudonym/name" ngModel required minlength="3" #author="ngModel">
+        <mat-error *ngIf="author.invalid">Please enter your desired pseudonym.</mat-error>
+      </mat-form-field><br/>
       <mat-form-field>
-        <textarea matInput rows="4" name="content" ngModel={{quote.author}} required #content="ngModel"></textarea>
+        <textarea matInput  rows="3" name="quote" placeholder="Enter your quote" ngModel required #quote="ngModel"></textarea>
+        <mat-error *ngIf="quote.invalid">Please enter some text.</mat-error>
       </mat-form-field>
-      <button mat-raised-button color="accent" type="submit">Update Post</button>
+      <button mat-raised-button color="warn" type="submit">Save Quote</button>
     </form>
-  </mat-card> -->
+  </mat-card>
+  

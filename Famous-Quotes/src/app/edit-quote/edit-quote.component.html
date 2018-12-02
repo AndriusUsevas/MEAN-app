@@ -1,0 +1,17 @@
+<mat-toolbar color="accent">
+    Edit Your Personal Quote
+</mat-toolbar>
+
+<mat-card>
+    <form (submit)="onEditQuote(quoteForm)" #quoteForm="ngForm">
+      <mat-form-field>
+        <input matInput type="text" name="author" placeholder="Enter your pseudonym/name" ngModel={{persquote.author}} required minlength="3" #author="ngModel">
+        <mat-error *ngIf="author.invalid">Please enter your pseudonym/name.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput rows="3" name="quote" placeholder="Enter your quote" ngModel={{persquote.quote}} required #quote="ngModel"></textarea>
+        <mat-error *ngIf="quote.invalid">Please enter some text.</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Update Quote</button>
+    </form>
+  </mat-card>
