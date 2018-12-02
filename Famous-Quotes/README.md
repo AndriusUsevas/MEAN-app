@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 
-##Running the code
+## Running the code
 
 1. Clone this repository using [Git](https://git-scm.com/).
 
